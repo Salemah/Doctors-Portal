@@ -12,23 +12,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { Box } from '@mui/system';
 import { AppBar, Button, Tooltip } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
-    const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
     return (
       <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -45,6 +34,7 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Doctor Portal
           </Typography>
+          <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

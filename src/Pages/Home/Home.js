@@ -8,6 +8,7 @@ import Header from '../Shared/Header';
 const Home = () => {
     return (
         <div>
+             <Header/>
           <Banner></Banner>
             <Services/>
             <Appointmentbanner/>

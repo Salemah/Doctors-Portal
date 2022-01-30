@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import Header from './Pages/Shared/Header';
+import Appointment from './Pages/Appointment/Appointment/Appointment';
 
 
 
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
        <Router>
-         <Header/>
+        
          <Switch>
           <Route exact path="/">
             <Home />
@@ -23,7 +24,10 @@ function App() {
           <Route path="/users">
             <Home />
           </Route>
-          <Route path="/">
+          <Route path="/appointment">
+            <Appointment></Appointment>
+          </Route>
+          <Route path="*">
             <Home />
           </Route>
         </Switch>
