@@ -36,7 +36,7 @@ const Appointmentbanner = () => {
                        Make An Appointment Today
                     </Typography>
                     <Typography sx={{mb:2}} variant="body2" style={{color: 'white',fontSize:14,fontWeight:400}} >
-                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, a!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, a!
                     </Typography>
                     <Button variant="contained">Contained</Button>
                     </Box>
