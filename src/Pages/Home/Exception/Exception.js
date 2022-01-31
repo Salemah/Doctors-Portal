@@ -4,11 +4,11 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Button, Container } from '@mui/material';
-import trt from '../../images/treatment.png'
+import trt from '../../../images/treatment.png'
 const Exception = () => {
     return (
         <Container>
-            <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 1,mt:7 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6} >
                         <img src={trt} style={{width:'90%',height:450}} alt=""/>
