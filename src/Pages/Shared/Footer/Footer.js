@@ -39,7 +39,7 @@ const Footer = () => {
                     <Typography sx={{ textAlign: 'center' }} variant="body2" gutterBottom>Conatct us</Typography>
                     <Typography sx={{ textAlign: 'center' }} variant="body2" gutterBottom>Conatct us</Typography>
                 </Grid>
-                <Grid item xs={8} md={3}>
+                <Grid item xs={12} md={3}>
                     <Typography sx={{ textAlign: 'center' }} variant="body2" style={{ color: '#0FCDE9', fontSize: 24, fontWeight: 400 }} gutterBottom>Conatct us</Typography>
                     <Typography sx={{ textAlign: 'center' }} variant="body2" gutterBottom>Conatct us</Typography>
                     <Typography sx={{ textAlign: 'center' }} variant="body2" gutterBottom>Call Now</Typography>
