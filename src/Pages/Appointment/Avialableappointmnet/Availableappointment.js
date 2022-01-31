@@ -44,7 +44,7 @@ const Availableappointment = ({ date }) => {
 
     return (
         <Container>
-            <Typography variant="h4" sx={{ color: 'info.main',mt:5, mb: 3 }}>Availabe {date.toDateString()}</Typography>
+            <Typography variant="h4" sx={{ color: 'info.main',mt:5, mb: 3 }}>Availabe Appointment on {date.toDateString()}</Typography>
          
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2}>

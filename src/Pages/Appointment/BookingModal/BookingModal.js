@@ -23,7 +23,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date }) => {
     const { name, time } = booking;
 
     const handleBookingSubmit = e => {
-        alert('submitting');
+        alert('submit Succesfull');
 
         // collect data
         // send to the server
