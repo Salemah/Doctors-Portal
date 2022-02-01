@@ -10,8 +10,8 @@ import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 const Info = () => {
     return (
         <Container>
-            <Box sx={{ flexGrow: 1,mt:-40 }}>
-                <Grid container spacing={4}>
+            <Box sx={{ flexGrow: 1,mt:-20 }}>
+                <Grid container spacing={2}>
                     <Grid item xs={4} md={4} >
                         <Box style={{backgroundColor:'#38ADCE  '}} sx={{display:'flex',p:3,borderRadius:2}}>
                             <AccessTimeIcon/>

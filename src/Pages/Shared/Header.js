@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { Box } from '@mui/system';
 import { AppBar, Button, Tooltip } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -35,7 +35,8 @@ const Header = () => {
             Doctor Portal
           </Typography>
           <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
-          <Button color="inherit">Login</Button>
+          <NavLink to="/login"><Button color="inherit">Login</Button></NavLink>
+          
         </Toolbar>
       </AppBar>
     </Box>

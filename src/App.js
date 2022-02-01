@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import Header from './Pages/Shared/Header';
+import Login from './Pages/Login/Login';
 import Appointment from './Pages/Appointment/Appointment/Appointment';
 
 
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/users">
             <Home />
+          </Route>
+          <Route path="/login">
+            <Login></Login>
           </Route>
           <Route path="/appointment">
             <Appointment></Appointment>
