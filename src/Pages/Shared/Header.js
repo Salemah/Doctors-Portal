@@ -13,9 +13,11 @@ import Menu from '@mui/material/Menu';
 import { Box } from '@mui/system';
 import { AppBar, Button, Tooltip } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
+import UseAuth from '../../Hook/UseAuth';
 
 
 const Header = () => {
+  const{user,Logout} = UseAuth();
 
 
     return (
@@ -34,8 +36,12 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Doctor Portal
           </Typography>
-          <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
-          <NavLink to="/login"><Button color="inherit">Login</Button></NavLink>
+          <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
+         {user?.email ?
+            <Button style={{ textDecoration: 'none', color: 'white' }} sx={{bgcolor: 'error.main'}} onClick={Logout}  color="inherit">Logout</Button>:
+            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login"><Button sx={{bgcolor: 'error.main'}} color="inherit">Login</Button></NavLink>
+         }
+         
           
         </Toolbar>
       </AppBar>
