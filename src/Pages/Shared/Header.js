@@ -43,7 +43,13 @@ const Header = () => {
           }
           <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
          {user?.email ?
-            <Button style={{ textDecoration: 'none', color: 'white' }} sx={{bgcolor: 'error.main'}} onClick={Logout}  color="inherit">Logout</Button>:
+           <Box>
+           <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+               <Button color="inherit">Dashboard</Button>
+           </NavLink>
+           <Button style={{ textDecoration: 'none', color: 'white' }} sx={{bgcolor: 'error.main'}} onClick={Logout}  color="inherit">Logout</Button>
+           </Box>
+            :
             <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login"><Button sx={{bgcolor: 'error.main'}} color="inherit">Login</Button></NavLink>
          }
          
