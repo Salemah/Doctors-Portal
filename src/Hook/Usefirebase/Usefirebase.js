@@ -38,9 +38,11 @@ const Usefirebase = () => {
             }).finally(() => setIsLoading(false));
     };
     //GoogleLogin
-    const googleLogin = () => {
+    const googleLogin = (location, history) => {
         signInWithPopup(auth, googleprovider)
             .then((result) => {
+                const locationurl = location.state.from || '/';
+                history.replace(locationurl);
                 setAuthError('');
 
             }).catch((error) => {
