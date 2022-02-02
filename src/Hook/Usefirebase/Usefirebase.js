@@ -38,17 +38,19 @@ const Usefirebase = () => {
             }).finally(() => setIsLoading(false));
     };
     //GoogleLogin
-    const googleLogin = (location, history) => {
+    const signInWithGoogle = (location, history) => {
+        setIsLoading(true);
         signInWithPopup(auth, googleprovider)
             .then((result) => {
-                const locationurl = location.state.from || '/';
+                const user = result.user;
+                const locationurl = location.state.from || '/home';
                 history.replace(locationurl);
                 setAuthError('');
 
             }).catch((error) => {
 
                 setAuthError(error.message);
-            });
+            }).finally(() => setIsLoading(false));
 
     }
 
@@ -76,7 +78,7 @@ const Usefirebase = () => {
 
     }
 
-    return { user, isLoading, authError, RegisterUser, Logout, LoginUser };
+    return { user, isLoading, authError,signInWithGoogle, RegisterUser, Logout, LoginUser };
 
 };
 

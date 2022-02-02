@@ -22,6 +22,7 @@ const Register = () => {
         const newlogindata = {...loginData};
        newlogindata[feild]  = value;
        setLoginData(newlogindata);
+       console.log(newlogindata);
     
        
     }
@@ -50,7 +51,19 @@ const Register = () => {
                                 label="Email"
                                 type="text"
                                 name="email"
-                                onChange={handleOnChange}
+                                onBlur={handleOnChange}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                variant="standard"
+                            />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="filled-number"
+                                label="User name"
+                                type="text"
+                                name="name"
+                                onBlur={handleOnChange}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -62,7 +75,7 @@ const Register = () => {
                                 label="Password"
                                 type="password"
                                 name="password"
-                                onChange={handleOnChange}
+                                onBlur={handleOnChange}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -74,7 +87,7 @@ const Register = () => {
                                 label="Confirm Password"
                                 type="password"
                                 name="password2"
-                                onChange={handleOnChange}
+                                onBlur={handleOnChange}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
