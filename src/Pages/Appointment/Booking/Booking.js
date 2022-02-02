@@ -5,7 +5,7 @@ import BookingModal from '../BookingModal/BookingModal';
 
 
 
-const Booking = ({ books, date }) => {
+const Booking = ({ books, date,setBookingSuccess }) => {
     const{name,time,space} = books;
     const [openBooking, setOpenBooking] = React.useState(false);
     const handleBookingOpen = () => setOpenBooking(true);
@@ -32,6 +32,7 @@ const Booking = ({ books, date }) => {
                 date={date}
                 booking={books}
                 openBooking={openBooking}
+                setBookingSuccess={setBookingSuccess}
                 handleBookingClose={handleBookingClose}
             ></BookingModal> 
            

@@ -5,6 +5,7 @@ handleinitilaizeapp();
 
 const Usefirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
+  
     const [user, setUser] = useState({});
     const [authError, setAuthError] = useState('');
     const auth = getAuth();

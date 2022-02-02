@@ -20,7 +20,7 @@ const style = {
     p: 4,
 };
 
-const BookingModal = ({ openBooking, handleBookingClose, booking, date }) => {
+const BookingModal = ({ openBooking, handleBookingClose, booking, date,setBookingSuccess }) => {
     const { name, time } = booking;
     const { user } = UseAuth();
     const initialInfo = { patientName: user.displayName, email: user.email, phone: '' }
@@ -57,12 +57,13 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date }) => {
         .then(res => res.json())
         .then(data => {
             if (data.insertedId) {
+                setBookingSuccess(true);
                 handleBookingClose();
                 
                 
             }
         });
-        handleBookingClose();
+       
         e.preventDefault();
     }
 
