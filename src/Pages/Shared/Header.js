@@ -36,6 +36,11 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Doctor Portal
           </Typography>
+          {
+            user?.email && <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            {user.displayName}
+          </Typography>
+          }
           <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
          {user?.email ?
             <Button style={{ textDecoration: 'none', color: 'white' }} sx={{bgcolor: 'error.main'}} onClick={Logout}  color="inherit">Logout</Button>:

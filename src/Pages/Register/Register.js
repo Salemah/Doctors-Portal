@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import login from '../../images/login.png'
 import { Button, Container, TextField, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import UseAuth from '../../Hook/UseAuth';
 import LinearProgress from '@mui/material/LinearProgress';
 import Alert from '@mui/material/Alert';
@@ -16,6 +16,7 @@ import Stack from '@mui/material/Stack';
 const Register = () => {
     const { user, RegisterUser, isLoading, authError } = UseAuth();
     const [loginData, setLoginData] = useState({});
+    const history = useHistory();
     const handleOnChange = e => {
         const feild = e.target.name;
         const value = e.target.value;
@@ -32,7 +33,7 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        RegisterUser(loginData.email, loginData.password);
+        RegisterUser(loginData.email, loginData.password,loginData.name,history);
         e.preventDefault();
     }
     return (
@@ -103,7 +104,7 @@ const Register = () => {
                         {
                            isLoading &&<LinearProgress />
                         }
-{/* aftr register succefull alert */}
+                            {/* aftr register succefull alert */}
                         {user?.email && <Stack sx={{ width: '100%' }} spacing={1}>
                         <Alert variant="filled" severity="success">
                           Register Succefull
