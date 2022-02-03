@@ -15,16 +15,24 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Button, Grid } from '@mui/material';
-import Calendar from '../../Shared/Calender/Calender';
-import Appointments from '../Appoinements/Appointments';
-import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
+import Dashboardhoe from '../DashboardHpome/Dashboardhoe';
+import Adddoctor from '../Adddoctor/Adddoctor';
+
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [date, setdate] = React.useState(new Date())
+  const { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -33,7 +41,10 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+
       <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
+      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Dashboard</Button></Link>
+      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/adddoctor`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Add Docotr</Button></Link>
       <Divider />
        <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -115,19 +126,16 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Typography paragraph>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={5}>
-              <Calendar date={date}
-               setdate={setdate}></Calendar>
-            </Grid>
-            <Grid item xs={12} sm={7}>
-              <Appointments date={date}></Appointments>
-            </Grid>
-            
-          </Grid>
+        <Switch>
+        <Route exact path={path}>
+          <Dashboardhoe/>
+        </Route>
+        <Route path={`${path}/adddoctor`}>
+          <Adddoctor/>
+        </Route>
+      </Switch>
           
-        </Typography>
+     
 
       </Box>
     </Box>
