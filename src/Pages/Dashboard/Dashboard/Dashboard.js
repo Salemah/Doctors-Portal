@@ -26,6 +26,7 @@ import {
 } from "react-router-dom";
 import Dashboardhoe from '../DashboardHpome/Dashboardhoe';
 import Adddoctor from '../Adddoctor/Adddoctor';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 
 const drawerWidth = 200;
 
@@ -45,6 +46,7 @@ function Dashboard(props) {
       <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
       <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Dashboard</Button></Link>
       <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/adddoctor`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Add Docotr</Button></Link>
+      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/makeadmin`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Add Docotr</Button></Link>
       <Divider />
        <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -132,6 +134,9 @@ function Dashboard(props) {
         </Route>
         <Route path={`${path}/adddoctor`}>
           <Adddoctor/>
+        </Route>
+        <Route path={`${path}/makeadmin`}>
+          <MakeAdmin/>
         </Route>
       </Switch>
           
