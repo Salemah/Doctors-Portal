@@ -15,15 +15,16 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import Calendar from '../../Shared/Calender/Calender';
 import Appointments from '../Appoinements/Appointments';
+import { Link } from 'react-router-dom';
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [date, setDate] = React.useState(new Date())
+  const [date, setdate] = React.useState(new Date())
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -32,8 +33,9 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+      <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
       <Divider />
-      <List>
+       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -42,7 +44,8 @@ function Dashboard(props) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
+      </List> 
+
 
     </div>
   );
@@ -72,6 +75,7 @@ function Dashboard(props) {
           <Typography variant="h6" noWrap component="div">
             Appointments
           </Typography>
+          
         </Toolbar>
       </AppBar>
       <Box
@@ -115,14 +119,14 @@ function Dashboard(props) {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={5}>
               <Calendar date={date}
-               setDate={setDate}></Calendar>
+               setdate={setdate}></Calendar>
             </Grid>
             <Grid item xs={12} sm={7}>
               <Appointments date={date}></Appointments>
             </Grid>
             
           </Grid>
-          Content here
+          
         </Typography>
 
       </Box>
