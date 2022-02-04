@@ -17,7 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import {
-  BrowserRouter as Router,
+ 
   Switch,
   Route,
   Link,
@@ -27,6 +27,8 @@ import {
 import Dashboardhoe from '../DashboardHpome/Dashboardhoe';
 import Adddoctor from '../Adddoctor/Adddoctor';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import UseAuth from '../../../Hook/UseAuth';
+import Adminroute from '../../Login/AdminRoute/Adminroute';
 
 const drawerWidth = 200;
 
@@ -34,7 +36,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { path, url } = useRouteMatch();
-
+  const { admin } = UseAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -43,12 +45,13 @@ function Dashboard(props) {
     <div>
       <Toolbar />
 
-      <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
-      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Dashboard</Button></Link>
-      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/adddoctor`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Add Doctor</Button></Link>
-      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/makeadmin`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Make Admin</Button></Link>
+      <Link style={{ textDecoration: 'none', color: 'white' }} to="/appointment"><Button sx={{ bgcolor: 'error.main' }} color="inherit">Appointment</Button></Link>
+      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}`}><Button sx={{ bgcolor: 'error.main' }} color="inherit">Dashboard</Button></Link>
+      {admin && <Box>
+        <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/adddoctor`}><Button sx={{ bgcolor: 'error.main' }} color="inherit">Add Doctor</Button></Link>
+        <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/makeadmin`}><Button sx={{ bgcolor: 'error.main' }} color="inherit">Make Admin</Button></Link></Box>}
       <Divider />
-       <List>
+      <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
@@ -57,7 +60,7 @@ function Dashboard(props) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List> 
+      </List>
 
 
     </div>
@@ -88,7 +91,7 @@ function Dashboard(props) {
           <Typography variant="h6" noWrap component="div">
             Appointments
           </Typography>
-          
+
         </Toolbar>
       </AppBar>
       <Box
@@ -129,18 +132,18 @@ function Dashboard(props) {
       >
         <Toolbar />
         <Switch>
-        <Route exact path={path}>
-          <Dashboardhoe/>
-        </Route>
-        <Route path={`${path}/adddoctor`}>
-          <Adddoctor/>
-        </Route>
-        <Route path={`${path}/makeadmin`}>
-          <MakeAdmin/>
-        </Route>
-      </Switch>
-          
-     
+          <Route exact path={path}>
+            <Dashboardhoe />
+          </Route>
+          <Adminroute path={`${path}/adddoctor`}>
+            <Adddoctor />
+          </Adminroute>
+          <Adminroute path={`${path}/makeadmin`}>
+            <MakeAdmin />
+          </Adminroute>
+        </Switch>
+
+
 
       </Box>
     </Box>

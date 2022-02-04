@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import handleinitilaizeapp from '../../Pages/Login/Firebase/FirebaseInitialize';
-import { getAuth, GoogleAuthProvider, updateProfile, signInWithPopup, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, updateProfile, signInWithPopup, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, getIdToken } from "firebase/auth";
 handleinitilaizeapp();
 
 const Usefirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
-  
+    const [admin, setAdmin] = useState(true);
+    const [token, setToken] = useState('');
     const [user, setUser] = useState({});
     const [authError, setAuthError] = useState('');
     const auth = getAuth();
@@ -73,6 +74,10 @@ const Usefirebase = () => {
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
+                getIdToken(user)
+                .then(idToken=> {
+                    setToken(idToken);
+                  })
                 setUser(user);
             } else {
                 setUser({})
@@ -95,6 +100,11 @@ const Usefirebase = () => {
 
 
     };
+    useEffect(()=>{
+        fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res=>res.json())
+        .then(data=>setAdmin(data.admin))
+    },[user.email])
 
     //end
     const Logout = () => {
@@ -107,7 +117,7 @@ const Usefirebase = () => {
 
     }
 
-    return { user, isLoading, authError,signInWithGoogle, RegisterUser, Logout, LoginUser };
+    return { user,token, isLoading,admin, authError,signInWithGoogle, RegisterUser, Logout, LoginUser };
 
 };
 
