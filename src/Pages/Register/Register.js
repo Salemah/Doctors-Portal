@@ -106,7 +106,7 @@ const Register = () => {
                         }
                             {/* aftr register succefull alert */}
                         {user?.email && <Stack sx={{ width: '100%' }} spacing={1}>
-                        <Alert variant="filled" severity="success">
+                        <Alert  severity="success">
                           Register Succefull
                         </Alert>
                        </Stack> 

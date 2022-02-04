@@ -45,8 +45,8 @@ function Dashboard(props) {
 
       <Link style={{ textDecoration: 'none', color: 'white' }}  to="/appointment"><Button sx={{bgcolor: 'error.main'}} color="inherit">Appointment</Button></Link>
       <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Dashboard</Button></Link>
-      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/adddoctor`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Add Docotr</Button></Link>
-      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/makeadmin`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Add Docotr</Button></Link>
+      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/adddoctor`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Add Doctor</Button></Link>
+      <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/makeadmin`}><Button sx={{bgcolor: 'error.main'}} color="inherit">Make Admin</Button></Link>
       <Divider />
        <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
