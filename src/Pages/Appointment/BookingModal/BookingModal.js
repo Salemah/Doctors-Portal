@@ -47,7 +47,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date,setBookin
             date: date.toLocaleDateString()
 
         }
-        fetch('http://localhost:5000/appointment',{
+        fetch('https://fierce-crag-91301.herokuapp.com/appointment',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

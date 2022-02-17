@@ -28,7 +28,7 @@ const Appointmentbanner = () => {
                 justifyContent: 'flex-start',
                 textAlign:'left',
                 alignItems: 'center' }}>
-                    <Box>
+                    <Box >
                     <Typography sx={{mb:1}} variant="h6"style={{color: '#0FCDE9',fontSize:19,fontWeight:400}}   >
                         Appointment
                     </Typography>
