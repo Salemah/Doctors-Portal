@@ -7,6 +7,7 @@ import Services from '../Services/Services';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header';
 import Contact from './Contact/Contact';
+import Doctors from './Doctors/Doctors';
 import Exception from './Exception/Exception';
 import Info from './Info/Info';
 import Testimonials from './Testimonials/Testimonials';
@@ -21,6 +22,7 @@ const Home = () => {
             <Exception/>
             <Appointmentbanner/>
             <Testimonials></Testimonials>
+            <Doctors></Doctors>
             <Contact></Contact>
             <Footer></Footer>
         </div>
